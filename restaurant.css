@@ -1,0 +1,1268 @@
+
+
+/* =========================================================
+   1. GLOBAL
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+img,
+iframe {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* =========================================================
+   2. NAVBAR
+   ========================================================= */
+
+.sub {
+    width: 100%;
+}
+
+.one {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+    width: 100%;
+    min-height: 60px;
+    padding: 10px 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.25);
+
+   
+}
+
+.one b {
+    margin-right: auto;
+    flex-shrink: 0;
+}
+
+.one a {
+    position: relative;
+    display: inline-block;
+
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.one a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+    background: orange;
+
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.one a:hover {
+    color: orange;
+    transform: translateY(-2px);
+}
+
+.one a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   3. HERO
+   ========================================================= */
+
+.two {
+    position: relative;
+    width: 100%;
+    height: 573px;
+    margin-top: 60px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.two > img {
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block;
+    object-fit: cover;
+    object-position: center;
+
+    opacity: 0.6;
+    transition: transform 8s ease;
+}
+
+.two:hover > img {
+    transform: scale(1.06);
+}
+
+.two::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.55)
+    );
+}
+
+.two .three {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+
+    width: min(90%, 1100px);
+    padding: 20px;
+
+    text-align: center;
+
+    transform: translate(-50%, -50%);
+    animation: heroContent 1.2s ease forwards;
+}
+
+.two .three h1 {
+    margin: 0 0 15px;
+    color: #fff;
+
+    font-size: clamp(40px, 7vw, 89px) !important;
+    line-height: 1.1;
+
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    animation: headingAnimation 1s ease;
+}
+
+.two .three h2 {
+    margin: 0 0 25px;
+    color: #fff;
+
+    font-size: clamp(18px, 3vw, 25px) !important;
+    line-height: 1.5;
+
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    animation: subtitleAnimation 1.3s ease;
+}
+
+.two .three button {
+    display: inline-block;
+
+    padding: 13px 28px;
+    margin: 8px;
+
+    border: 2px solid transparent;
+    border-radius: 30px;
+
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.two .three button:first-of-type {
+    background-color: green !important;
+}
+
+.two .three button:last-of-type {
+    background-color: rgba(255, 166, 0, 0.873) !important;
+}
+
+.two .three button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 165, 0, 0.4);
+    border-color: #fff;
+}
+
+.two .three button:active {
+    transform: scale(0.95);
+}
+
+@keyframes heroContent {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes headingAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtitleAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   4. RESTAURANT INFORMATION
+   ========================================================= */
+
+.four {
+    width: 100%;
+    padding: 70px 7%;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: 50px;
+
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.four .top {
+    width: 100%;
+    margin: 0 !important;
+    color: #fff;
+
+    animation: fourTextReveal 1s ease;
+}
+
+.four .top h2 {
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.four .top h2 p {
+    color: orange !important;
+    font-size: clamp(20px, 3vw, 30px);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.four dt {
+    position: relative;
+
+    color: #fff !important;
+    font-size: 19px;
+
+    margin-top: 20px;
+    margin-bottom: 8px;
+    padding-left: 18px;
+}
+
+.four dt::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 3px;
+
+    width: 4px;
+    height: 20px;
+
+    background: orange;
+    border-radius: 5px;
+}
+
+.four dd {
+    margin-left: 18px;
+    margin-bottom: 10px;
+
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.7;
+
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.four dd:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.four .top2 {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+
+    animation: fourImageReveal 1.2s ease;
+}
+
+.four .top2 img {
+    display: block;
+
+    width: 100% !important;
+    max-width: 100%;
+    height: 420px !important;
+
+    margin: 0 !important;
+    object-fit: cover;
+    border-radius: 20px;
+
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.four .top2 img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 45px rgba(255, 165, 0, 0.3);
+}
+
+@keyframes fourTextReveal {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fourImageReveal {
+    from {
+        opacity: 0;
+        transform: translateX(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   5. MENU TITLE
+   ========================================================= */
+
+.menu-title {
+    width: 100%;
+    padding: 80px 20px 35px;
+
+    text-align: center;
+}
+
+.menu-title h2 {
+    margin: 0 0 10px;
+
+    color: #fff;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.menu-title p {
+    margin: 0;
+    color: orange;
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   6. MENU / ACCORDION
+   ========================================================= */
+
+.ben {
+    width: min(90%, 1000px);
+    margin: 0 auto 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 25px;
+}
+
+.ben p {
+    padding: 8px 18px;
+
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+
+    transition: 0.3s ease;
+}
+
+.ben p:hover {
+    color: #000;
+    background: orange;
+}
+
+.zero {
+    width: min(90%, 1000px);
+    margin: 30px auto;
+
+    background: #111 !important;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.ben2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 18px 25px;
+
+    background: #181818 !important;
+    border-bottom: 1px solid #333;
+
+    transition: all 0.3s ease;
+}
+
+.ben2:hover {
+    background: #222 !important;
+    transform: translateX(5px);
+}
+
+.ben2 img {
+    flex: 0 0 auto;
+
+    width: 95px;
+    height: 95px;
+
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid orange;
+}
+
+.ben2 p:first-child {
+    margin-bottom: 8px;
+
+    color: orange !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.ben2 p:last-child {
+    margin: 0;
+
+    color: #ddd !important;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   7. SPECIAL
+   ========================================================= */
+
+.six {
+    width: min(90%, 1200px);
+    margin: 70px auto !important;
+    color: #fff;
+}
+
+.six > div:first-child {
+    margin: 0 0 30px 0 !important;
+}
+
+.six h1 {
+    margin-bottom: 8px;
+
+    color: orange !important;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.six h1 + p {
+    margin: 0 0 10px;
+
+    color: #fff !important;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.six h1 + p + p {
+    width: auto !important;
+    max-width: 600px;
+
+    color: #bbb !important;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.six .div {
+    width: 100%;
+    height: 1px;
+    margin: 25px 0;
+
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.div2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 40px;
+
+    margin-top: 30px;
+}
+
+.div2 > div:first-child {
+    padding: 10px;
+}
+
+.div2 h2 {
+    margin: 0 !important;
+}
+
+.div2 h2 p {
+    margin: 0 0 18px;
+
+    color: orange !important;
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+.div2 > div:first-child > p {
+    margin: 0 !important;
+
+    color: #ddd !important;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.div2 img {
+    display: block;
+
+    width: 100%;
+    max-width: 500px;
+    height: 350px;
+
+    margin: auto;
+
+    object-fit: cover;
+    border-radius: 8px;
+
+    transition: 0.4s ease;
+}
+
+.div2 img:hover {
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   8. GALLERY
+   ========================================================= */
+
+.gallery1 {
+    width: min(90%, 1200px);
+    margin: 70px auto;
+}
+
+.gallery1 > div:first-child {
+    margin-bottom: 30px;
+}
+
+.gallery1 h1 {
+    margin-bottom: 8px;
+
+    color: orange !important;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.gallery1 h1 + p {
+    margin: 0;
+
+    color: #fff !important;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.gallery2 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.gallery2 > div {
+    display: contents;
+}
+
+.gallery2 img {
+    display: block;
+
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+    border-radius: 5px;
+
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.gallery2 img:hover {
+    z-index: 2;
+    transform: scale(1.05);
+    filter: brightness(75%);
+}
+
+
+/* =========================================================
+   9. WHY CHOOSE
+   ========================================================= */
+
+.chose {
+    width: min(90%, 1200px);
+    margin: 70px auto;
+}
+
+.chose > h1 {
+    margin-bottom: 30px;
+
+    color: orange !important;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.lorem {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.lorem > div {
+    min-height: 220px;
+
+    padding: 30px 25px;
+
+    background: #181818;
+    border: 1px solid #292929;
+    border-radius: 6px;
+
+    transition: all 0.4s ease;
+}
+
+.lorem h2 {
+    margin: 0 0 8px 8px !important;
+
+    color: #555;
+    font-size: 40px;
+
+    transition: 0.3s;
+}
+
+.lorem h3 {
+    margin: 0 0 15px 8px !important;
+
+    color: orange;
+    font-size: 21px;
+}
+
+.lorem p {
+    margin-left: 8px !important;
+
+    color: #bbb;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.lorem > div:hover {
+    transform: translateY(-10px);
+    border-color: orange;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.lorem > div:hover h2 {
+    color: orange;
+}
+
+
+/* =========================================================
+   10. CONTACT
+   ========================================================= */
+
+.contact {
+    width: min(90%, 1340px);
+    margin: 70px auto;
+}
+
+.contact h1 {
+    margin-bottom: 25px;
+
+    color: orange;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.contact iframe {
+    display: block;
+
+    width: 100%;
+    height: 350px;
+
+    border: 0 !important;
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   11. FOOTER
+   ========================================================= */
+
+.footer {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 30px;
+
+    padding: 50px 7%;
+
+    background: #111;
+}
+
+.footer-box {
+    min-width: 0;
+}
+
+.footer-box b {
+    color: #fff;
+    font-size: 20px;
+}
+
+.footer-box p {
+    margin: 10px 0;
+
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.footer-box ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-box li {
+    margin: 12px 0;
+
+    color: #ccc;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.footer-box li:hover {
+    color: orange;
+}
+
+.newsletter {
+    width: 100%;
+    max-width: 350px;
+}
+
+.subscribe {
+    display: flex;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.subscribe input {
+    min-width: 0;
+    width: 100%;
+    flex: 1;
+
+    padding: 12px;
+
+    border: none;
+    outline: none;
+}
+
+.subscribe button {
+    flex: 0 0 auto;
+
+    padding: 12px 18px;
+
+    border: none;
+    background: #cda45e;
+    color: #fff;
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLET — 901px and below
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .one {
+        padding: 10px 4%;
+    }
+
+    .one a {
+        margin: 0 7px;
+    }
+
+    .two {
+        height: 520px;
+    }
+
+    .four {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        padding: 60px 5%;
+    }
+
+    .four .top2 img {
+        height: 350px !important;
+    }
+
+    .four dd {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .gallery2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery2 img {
+        height: 220px;
+    }
+
+    .lorem {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 40px 5%;
+    }
+
+    .newsletter {
+        max-width: 100%;
+    }
+
+    .contact {
+        width: 92%;
+    }
+
+    .contact iframe {
+        height: 320px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE — 600px and below
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Navbar */
+    .one {
+        min-height: 55px;
+        padding: 9px 3%;
+        gap: 5px;
+    }
+
+    .one b a {
+        font-size: 16px;
+    }
+
+    .one a {
+        margin: 0 5px;
+        font-size: 13px;
+    }
+
+    .one a::after {
+        bottom: -4px;
+    }
+
+    /* Hero */
+    .two {
+        height: 600px;
+        margin-top: 55px;
+    }
+
+    .two .three {
+        width: 94%;
+        padding: 15px;
+    }
+
+    .two .three h1 {
+        font-size: 42px !important;
+        line-height: 1.15;
+        margin-bottom: 15px;
+    }
+
+    .two .three h2 {
+        font-size: 18px !important;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .two .three button {
+        display: block;
+        width: min(80%, 250px);
+        margin: 7px auto;
+        padding: 12px 20px;
+    }
+
+    /* Restaurant information */
+    .four {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 50px 20px;
+    }
+
+    .four .top {
+        width: 100%;
+    }
+
+    .four .top h2 p {
+        font-size: 21px;
+        line-height: 1.5;
+    }
+
+    .four dt {
+        font-size: 17px;
+        margin-top: 25px;
+    }
+
+    .four dd {
+        margin-left: 18px;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .four .top2 {
+        width: 100%;
+    }
+
+    .four .top2 img {
+        width: 100% !important;
+        height: 280px !important;
+    }
+
+    /* Menu title */
+    .menu-title {
+        padding: 65px 15px 25px;
+    }
+
+    .menu-title h2 {
+        font-size: 26px;
+    }
+
+    .menu-title p {
+        font-size: 17px;
+    }
+
+    /* Menu */
+    .ben {
+        width: 94%;
+        gap: 8px;
+    }
+
+    .ben p {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .zero {
+        width: 94%;
+    }
+
+    .ben2 {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+    }
+
+    .ben2 img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .ben2 p:first-child {
+        font-size: 18px;
+    }
+
+    .ben2 p:last-child {
+        font-size: 14px;
+    }
+
+    /* Special */
+    .six {
+        width: 92%;
+        margin: 50px auto !important;
+    }
+
+    .six h1 {
+        font-size: 17px;
+    }
+
+    .six h1 + p {
+        font-size: 26px;
+    }
+
+    .six h1 + p + p {
+        font-size: 14px;
+    }
+
+    .div2 {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .div2 h2 p {
+        font-size: 21px;
+    }
+
+    .div2 > div:first-child > p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .div2 img {
+        height: 280px;
+    }
+
+    /* Gallery */
+    .gallery1 {
+        width: 92%;
+        margin: 50px auto;
+    }
+
+    .gallery1 h1 {
+        font-size: 17px;
+    }
+
+    .gallery1 h1 + p {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    .gallery2 {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .gallery2 img {
+        height: 250px;
+    }
+
+    /* Why choose */
+    .chose {
+        width: 92%;
+        margin: 50px auto;
+    }
+
+    .chose > h1 {
+        font-size: 18px;
+    }
+
+    .lorem {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .lorem > div {
+        min-height: auto;
+        padding: 25px 20px;
+    }
+
+    /* Contact */
+    .contact {
+        width: 94%;
+        margin: 50px auto;
+    }
+
+    .contact h1 {
+        font-size: 18px;
+    }
+
+    .contact iframe {
+        height: 280px;
+    }
+
+    /* Footer */
+    .footer {
+        grid-template-columns: 1fr;
+        padding: 35px 25px;
+        gap: 25px;
+    }
+
+    .footer-box {
+        width: 100%;
+    }
+
+    .newsletter {
+        max-width: 100%;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES — 380px and below
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .one b a {
+        font-size: 14px;
+    }
+
+    .one a {
+        font-size: 12px;
+        margin: 0 3px;
+    }
+
+    .two {
+        height: 550px;
+    }
+
+    .two .three h1 {
+        font-size: 34px !important;
+    }
+
+    .two .three h2 {
+        font-size: 16px !important;
+    }
+
+    .two .three button {
+        width: 90%;
+    }
+
+    .four {
+        padding: 40px 15px;
+    }
+
+    .four .top h2 p {
+        font-size: 19px;
+    }
+
+    .four dt {
+        font-size: 16px;
+    }
+
+    .four dd {
+        font-size: 13px;
+    }
+
+    .menu-title h2 {
+        font-size: 24px;
+    }
+
+    .menu-title p {
+        font-size: 15px;
+    }
+
+    .six h1 + p {
+        font-size: 23px;
+    }
+
+    .gallery2 img {
+        height: 220px;
+    }
+
+    .contact iframe {
+        height: 240px;
+    }
+
+    .subscribe {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .subscribe button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
